@@ -1,0 +1,57 @@
+
+.acc{
+    background-color:white;
+    border-radius: 20px;
+    /* width: 80%; */
+    margin: 10px 0;
+    display:flex;
+    justify-content: space-between;
+}
+.acc-body{
+
+    background-color:white;
+    border-radius: 20px;
+    width: 100%;
+    margin: 15px 0;
+    padding: 1%;
+}
+.acc-title{
+    width: 80%;
+    font-size: 1.7rem;
+    font-weight: 600;
+    margin: 10px 20px;
+}
+.acc-icon{
+    padding:15px 20px 0;
+}
+
+
+.left2{
+    width: 50%;
+}
+.right2{
+    width: 50%
+}
+.comp2{
+    margin: 0 3%;
+    display:flex;
+   justify-content: space-between;
+    
+}
+
+.cover-buttons{
+    display: flex;
+    justify-content:flex-start;
+    margin: 0 20px;
+  }
+  .buttons{
+    margin:15px 5px;
+    padding: 3px 15px 3px 15px;
+    background-color: #0BAF6A;
+    height: 30px;
+    width: fit-content;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+  }
+  

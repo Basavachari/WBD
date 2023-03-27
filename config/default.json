@@ -1,0 +1,6 @@
+
+{
+    "mongoUrl":"mongodb+srv://chari:basavachari123@cluster123.vcuqoly.mongodb.net/test",
+    "jwtSecret":"mysecrettoken"
+    
+}

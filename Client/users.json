@@ -1,0 +1,265 @@
+{
+  "users": [
+    {
+      "username": "bonyzygyle",
+      "email": "jiku@mailinator.com",
+      "mobile": "996248-4476",
+      "password": "Pa$$w0rd!",
+      "confirmPassword": "Pa$$w0rd!",
+      "location": "Id est est sint corr",
+      "firstName": "Mariko",
+      "lastName": "Holt",
+      "dob": "1977-06-07",
+      "academic": {
+        "college": {
+          "name": "Velit aliquip archit",
+          "passingYear": "1975-02",
+          "qualification": "Aut ex voluptas culp"
+        },
+        "school": {
+          "name": "Doloribus quas esse",
+          "passingYear": "2017-11",
+          "qualification": "Est consectetur debi"
+        }
+      },
+      "project": {
+        "title": "Repudiandae veniam ",
+        "details": "Dolorem velit minim "
+      },
+      "experience": {
+        "companyName": "Irwin and Mendoza Inc",
+        "role": "Dolorem est ut ullam",
+        "joinDate": "2009-11",
+        "endDate": "2008-11",
+        "details": "Quae impedit magni "
+      },
+      "id": 1
+    },
+    {
+      "username": "hotarodoj",
+      "email": "dujuvyvu@mailinator.com",
+      "mobile": "648835-9712",
+      "password": "Pa$$w0rd!",
+      "confirmPassword": "Pa$$w0rd!",
+      "location": "Reprehenderit rerum ",
+      "firstName": "Dakota",
+      "lastName": "Le",
+      "dob": "1995-10-25",
+      "academic": {
+        "college": {
+          "name": "Anim assumenda rerum",
+          "passingYear": "2004-06",
+          "qualification": "Reprehenderit quo n"
+        },
+        "school": {
+          "name": "Molestias omnis qui ",
+          "passingYear": "1971-02",
+          "qualification": "Repellendus Nisi in"
+        }
+      },
+      "project": {
+        "title": "Pariatur Id error c",
+        "details": "Voluptate aut nulla "
+      },
+      "experience": {
+        "companyName": "Gardner Vargas Associates",
+        "role": "Voluptatem et praese",
+        "joinDate": "1991-09",
+        "endDate": "2004-11",
+        "details": "In aut cupiditate su"
+      },
+      "id": 2
+    },
+    {
+      "username": "gaurav",
+      "email": "gauravjalkote012@gmail.com",
+      "mobile": "7744980871",
+      "password": "123",
+      "confirmPassword": "123",
+      "location": "Latur",
+      "firstName": "Gaurav",
+      "lastName": "Jalkote",
+      "dob": "2022-11-30",
+      "academic": {
+        "college": {
+          "name": "Voluptas cillum dict",
+          "passingYear": "2005-07",
+          "qualification": "Duis itaque esse it"
+        },
+        "school": {
+          "name": "Temporibus numquam u",
+          "passingYear": "2014-10",
+          "qualification": "Inventore ad iusto l"
+        }
+      },
+      "project": {
+        "title": "Doloribus atque libe",
+        "details": "In eaque dolore sequ"
+      },
+      "experience": {
+        "companyName": "Britt and Sosa Plc",
+        "role": "Et pariatur Volupta",
+        "joinDate": "2005-08",
+        "endDate": "2000-12",
+        "details": "Quia omnis numquam a"
+      },
+      "id": 3
+    },
+    {
+      "username": "qacowupet",
+      "email": "kypy@mailinator.com",
+      "mobile": "471403923234",
+      "password": "Pa$$w0rd!",
+      "confirmPassword": "Pa$$w0rd!",
+      "location": "Ad tempore adipisic",
+      "firstName": "Bo",
+      "lastName": "Meyers",
+      "dob": "1978-06-08",
+      "academic": {
+        "college": {
+          "name": "Adipisci quis placea",
+          "passingYear": "1971-03",
+          "qualification": "Dolore dolorem exerc"
+        },
+        "school": {
+          "name": "Fugiat earum fugiat",
+          "passingYear": "2003-10",
+          "qualification": "Illum blanditiis pe"
+        }
+      },
+      "project": {
+        "title": "Minus molestiae at e",
+        "details": "Laboriosam est off"
+      },
+      "experience": {
+        "companyName": "Curry and Knight Plc",
+        "role": "Iste accusamus enim ",
+        "joinDate": "2021-09",
+        "endDate": "1984-08",
+        "details": "Proident et velit "
+      },
+      "id": 4
+    },
+    {
+      "username": "Gaurav",
+      "email": "jglkfjkljdsflj@gmail.com",
+      "mobile": "1111111111",
+      "password": "12345",
+      "confirmPassword": "12345",
+      "location": "Incidunt deserunt s",
+      "firstName": "Jane",
+      "lastName": "Powell",
+      "dob": "2016-01-28",
+      "academic": {
+        "college": {
+          "name": "Sint nemo nesciunt ",
+          "passingYear": "1988-01",
+          "qualification": "Neque dignissimos si"
+        },
+        "school": {
+          "name": "Autem vel voluptatem",
+          "passingYear": "1991-07",
+          "qualification": "Veniam ea qui molli"
+        }
+      },
+      "project": {
+        "title": "Ad aute voluptate et",
+        "details": "Temporibus aperiam e"
+      },
+      "experience": {
+        "companyName": "Webb and Cervantes Co",
+        "role": "Vitae illum magni a",
+        "joinDate": "1978-08",
+        "endDate": "1986-07",
+        "details": "Quis incidunt conse"
+      },
+      "id": 5
+    }
+  ],
+  "jobs": [
+    {
+      "jobName": "Web application",
+      "price": "2345",
+      "email": "sampu@gmail.com",
+      "experience": "expert",
+      "category": "Frontend developer",
+      "skills": "react",
+      "country": "India",
+      "jobType": "hourly",
+      "description": "fghj",
+      "id": 1
+    },
+    {
+      "jobName": "Web application",
+      "price": "123",
+      "email": "balarajaiahkalluri@gmail.com",
+      "experience": "expert",
+      "category": "Backend developer",
+      "skills": "html",
+      "country": "America",
+      "jobType": "fixedPrice",
+      "description": "good",
+      "id": 2
+    },
+    {
+      "jobName": "Client-server Applications",
+      "price": "567",
+      "email": "ffsdgroup19@gmail.com",
+      "experience": "intermediate",
+      "category": "Web Designer",
+      "skills": "Node,react,css",
+      "country": "India",
+      "jobType": "hourly",
+      "description": "I can work alot on UI",
+      "id": 3
+    },
+    {
+      "jobName": "Excel and applications",
+      "price": "567",
+      "email": "sampu@gmail.com",
+      "experience": "intermediate",
+      "category": "UI/UX designers",
+      "skills": "Node,react",
+      "country": "India",
+      "jobType": "hourly",
+      "description": "good work",
+      "id": 4
+    },
+    {
+      "jobName": "WhatApp bot Creation ",
+      "price": "2000",
+      "email": "abcd@gmail.com",
+      "experience": "entry",
+      "category": "Backend developer",
+      "skills": "BotCreation, Data Handling",
+      "country": "India",
+      "jobType": "hourly",
+      "description": "Bot creation for whatApp",
+      "id": 5
+    },
+    {
+      "jobName": "Leonard Swanson",
+      "price": "160",
+      "email": "jipohucy@mailinator.com",
+      "experience": "expert",
+      "category": "Backend developer",
+      "skills": "Quod sint perspiciat",
+      "country": "Dolor dolorem lorem ",
+      "jobType": "hourly",
+      "description": "Voluptate quisquam s",
+      "id": 6
+    },
+    {
+      "jobName": "Colin Bates",
+      "price": "832",
+      "email": "vajo@mailinator.com",
+      "experience": "entry",
+      "category": "UI/UX designers",
+      "skills": "Optio nisi recusand",
+      "country": "Dolor voluptate sint",
+      "jobType": "fixedPrice",
+      "description": "Rerum ea voluptate f",
+      "id": 7
+    }
+  ]
+}
