@@ -161,7 +161,31 @@ router.get('/',async(req,res)=>{
 }
 
 )
+//@route    GET api/profile/propularUser
+router.get('/popularUser',auth,async(req,res)=>{
+    try{
+        const profiles=await Profile.find({user:{$ne:req.user.id}}).populate('user',['username','avatar']);
+        res.json(profiles);
+    }
+    catch(err){
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+})
 
+
+// @get a pirticular profile
+router.get('/getprofile/:id',async(req,res)=>{
+    try{
+        const id = req.params.id;
+        const profiles=await Profile.find({_id:id}).populate('user',['username','avatar']);
+        res.json(profiles);
+    }
+    catch(err){
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+})
 //@route GET all user profiles
 router.get('/users',async(req,res)=>{
     try{
@@ -175,6 +199,7 @@ router.get('/users',async(req,res)=>{
 }
 
 )
+
 
 
 

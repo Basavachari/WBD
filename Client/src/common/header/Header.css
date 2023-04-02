@@ -2,10 +2,15 @@
 /*------search-----------*/
 .search {
   padding: 20px 0;
+  box-shadow: 5px 5px 8px #627966;
+  margin-bottom: 2%;
 }
 .search .logo img {
   width: 150px;
   height: auto;
+}
+.boost{
+  width:60px;
 }
 .search .width {
   width: 20%;
@@ -60,7 +65,7 @@
   margin-left: 10px;
 }
 header {
-  height: 8vh;
+  height: 7vh;
   box-shadow: -1px 15px 17px -8px rgba(0, 0, 0, 0.1);
 }
 header ul {

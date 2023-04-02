@@ -5,17 +5,17 @@ const Wrapper = () => {
   const data = [
     {
       cover: <i class='fa-solid fa-truck-fast'></i>,
-      title: "Worldwide Delivery",
+      title: "Gratis means free",
       decs: "We offer competitive prices on our 100 million plus product any range.",
     },
     {
       cover: <i class='fa-solid fa-id-card'></i>,
-      title: "Safe Payment",
+      title: "Apply For Jobs",
       decs: "We offer competitive prices on our 100 million plus product any range.",
     },
     {
       cover: <i class='fa-solid fa-shield'></i>,
-      title: "Shop With Confidence ",
+      title: "Hire With Confidence ",
       decs: "We offer competitive prices on our 100 million plus product any range.",
     },
     {

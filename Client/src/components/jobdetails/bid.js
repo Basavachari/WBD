@@ -73,7 +73,7 @@ export default function Bid(props) {
                             placeholder="What makes you the best candidate for this project?" rows="3" required></textarea>
                         </div>
                         <div class="col-12">
-                            <button class="btn-skills" type="submit">Place a brid</button>
+                            <button class="btn-skills" type="submit">Place a bid</button>
                         </div>
                     </form>
                 </div>

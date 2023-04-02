@@ -1,3 +1,10 @@
+.text-small{
+    margin-top: 1%;
+    border: 20px solid #fff;
+    
+    border-radius: 2%;
+}
+
 .card{
     border: none;
     margin-bottom: 10px;

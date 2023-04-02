@@ -5,17 +5,14 @@ import { format } from 'date-fns';
 import { deleteExperience } from '../../../actions/profile';
 // import formatDate from '../../utils/formatDate';
 
-const Experience = ({ experience,deleteExperience}) => {
+const Experience = ({owner, experience,deleteExperience}) => {
   const experiences = experience.map((exp) => (
     <div key={exp._id} className="container  shadow py-2">
                     <p><b>{exp.title} / {exp.company}</b></p>
                     <i className="text-dark experience-dates"><span className="tag  round">{format(new Date(exp.from), 'yyyy-MM-dd')}</span> to <span className="tag  round">{format(new Date(exp.to), 'yyyy-MM-dd')}</span></i>
-                    <button
-          onClick={() => deleteExperience(exp._id)}
-          className=" btn hoverable is-hovered  is-pulled-right"
-        >
-          <i class="fa fa-trash"></i>
-        </button>
+                    {owner && (<>
+                    <button onClick={() => deleteExperience(exp._id)} className=" btn hoverable is-hovered  is-pulled-right"><i class="fa fa-trash"></i></button>
+                    </>)}
                   <div className="py-1">
                     <p>{exp.description}
                     

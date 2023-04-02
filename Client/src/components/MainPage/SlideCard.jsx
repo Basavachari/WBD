@@ -22,7 +22,7 @@ const SlideCard = () => {
           let string = value.style
           return (
             <>
-              <div className='box2 d_flex top' key={index}>
+              <div className='box2 d_flex' key={index}>
                 <div className='left' style={{backgroundColor:string}}>
                   <h1 style={{color:'white'}}>{value.title}</h1>
                   <p style={{color:'white'}}>{value.desc}</p>

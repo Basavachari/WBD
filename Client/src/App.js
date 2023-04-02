@@ -10,6 +10,7 @@ import PrivateRoute from './routing/PrivateRoute';
 import MainPage from "./pages/MainPage";
 import Search from "./pages/Search";
 import CV from "./components/profile/cv";
+import Profile from "./components/profile/profile";
 import JobPage from "./pages/JobPage";
 import AddJobPage from "./pages/addJob"; 
 import About from "./pages/About";
@@ -38,6 +39,7 @@ function App() {
           <Route path="main" element={<PrivateRoute component={MainPage} />}/>
             <Route path="search" element={<Search />}/>
             <Route path="/jobdetails/:job_id" element={<JobPage/>}/>
+            <Route path ="viewProfile/:user_id" element={<Profile/>}/>
             <Route path="profile" element={<PrivateRoute component={CV} />}/>
             <Route path="addJob" element={<AddJobPage/>}/>
             <Route path="aboutus" element={<About/>}/>

@@ -9,7 +9,7 @@ function AddJobPage(){
         <>
         <Header />
         <AddJob/>
-        <Footer/>
+        
         </>
     )
 }

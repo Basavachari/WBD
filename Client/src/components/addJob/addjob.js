@@ -3,7 +3,8 @@ import './addJob.css'
 import axios from "axios";
 // import image from './img1.png'
 //import { ThemeContext } from "./App";
-
+import { Link } from 'react-router-dom';
+const Swal = require('sweetalert2')
 
 export default function AddJob() {
     const init = {
@@ -20,7 +21,7 @@ export default function AddJob() {
     const [data, setData] = useState(init)
     const [hover, setHover] = useState();
     const [dataErrors, setDataErrors] = useState({});
-    const [isSubmit, setIsSubmit] = useState(false);
+    // const [isSubmit, setIsSubmit] = useState(false);
     const handleMouseIn = () => {
         setHover(true);
     };
@@ -42,17 +43,24 @@ export default function AddJob() {
     const handleSubmit = (e) => {
         e.preventDefault();
         setDataErrors(validate(data));
-        setIsSubmit(true);
-        if (Object.keys(dataErrors).length === 0 && isSubmit) {
+        // setIsSubmit(true);
+        if (Object.keys(dataErrors).length === 0) {
             // let user = axios.get("https://localhost:5000/api/")
             axios.post("http://localhost:5000/api/job/addjob", data);
+            // alert("Job added successfully ");
             setData(init);
+            Swal.fire(
+                'Job Posted',
+            'Your job has been posted successfully',
+            'success'
+              )
         }
+
 
     };
     useEffect(() => {
         console.log(dataErrors);    
-        if (Object.keys(dataErrors).length === 0 && isSubmit) {
+        if (Object.keys(dataErrors).length === 0) {
             console.log(data);
         }
     }, [dataErrors]);
@@ -230,7 +238,9 @@ export default function AddJob() {
                     </div>
                 </div>
                 <div className='buttonClass'>
+               
                     <button type='submit' className='fluid ui button blue' onMouseOver={handleMouseIn} onMouseOut={handleMouseOut}> {hover ? "Submit" : "Add Job"} </button>
+           
                     {/* <button type='submit' className='fluid ui button blue' >Add Job</button> */}
                 
                 </div>

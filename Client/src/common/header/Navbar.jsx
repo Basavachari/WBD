@@ -3,59 +3,58 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
+import logo from "../../components/assets/images/logofinal.svg"
 
 
 const Navbar = ({ auth: { isAuthenticated }, logout }) => {
   // Toogle Menu
-  const [MobileMenu, setMobileMenu] = useState(false)
+  // const [MobileMenu, setMobileMenu] = useState(false)
+  // window.addEventListener("scroll", function () {
+  //   const search = document.querySelector(".search")
+  //   search.classList.toggle("active", window.scrollY > 100)
+  // })
   return (
     <>
-      <header className='header' style={{marginTop:'-5px'}}>
-        <div className='container d_flex'>
-          <div className='catgrories d_flex'>
-            <span class='fa-solid fa-border-all'></span>
-            <h4>
-              Categories 
-            </h4>
+      <section className='search '>
+        <div className='container c_flex'>
+          <div className='logo width '>
+            <Link to="/main">
+            <img src={logo} alt='' />
+            </Link>
           </div>
+          <div className="boost">
 
-          <div className='navlink'>
-          <ul className={MobileMenu ? "nav-links-MobileMenu" : "link f_flex capitalize"} onClick={() => setMobileMenu(false)}>
-              {/*<ul className='link f_flex uppercase {MobileMenu ? "nav-links-MobileMenu" : "nav-links"} onClick={() => setMobileMenu(false)}'>*/}
-              <li>
-                <Link to='/main'>home</Link>
-              </li>
-              {/* <li>
-                <Link to=''>pages</Link>
-              </li> */}
-              <li>
-                <Link to=''>User account</Link>
-              </li>
-              <li>
-                <Link to=''>FAQ</Link>
-              </li>
-              <li>
-                <Link to=''>contact</Link>
-              </li>
-              <li>
-              <Link onClick={logout} to='/'>
-              <i className="fas fa-sign-out-alt" />{' '}
-              <span className="hide-sm">Logout</span>
+          </div>
+          <div className='search-box f_flex'>
+          <Link to="/search">
+            <i className='fa fa-search'></i>
+            </Link>
+            <input type='text' placeholder='What service are you looking for today?' />
+          </div>
+          {/* <div className="noti f_flex">
+          <i className="fa  fa-light fa-bell icon-circle " style={{fontSize:'20px'}} ></i>
+          </div>
+          <div className="noti f_flex">
+          <i className="fa fa-light fa-envelope icon-circle" ></i>
+          </div> */}
+          <div className='noti f_flex'>
+          <Link to="/profile">
+            <i className='fa fa-user icon-circle'></i>
+            </Link>
+            </div>
+            <div className="noti f_flex">
+
+<Link onClick={logout} to='/'>
+              <i className="fa fa-sign-out-alt icon-circle"></i>
               </Link>
-                {/* <Link onClick={()=>{localStorage.removeItem('token');}} to='/'>Log out</Link> */}
-              </li>
-            </ul>
-
-            <button className='toggle' onClick={() => setMobileMenu(!MobileMenu)}>
-              {MobileMenu ? <i className='fas fa-times close home-btn'></i> : <i className='fas fa-bars open'></i>}
-            </button>
+            </div>
+          
           </div>
-        </div>
-      </header>
+        {/* </div> */}
+      </section>
     </>
   )
 }
-
 Navbar.propTypes = {
   logout: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired

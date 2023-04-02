@@ -37,10 +37,10 @@ const MainPage = ({
               <Header />
               <Home />
               {/* <Job_carts/> */}
+              <FlashDeals />
               <JobDeals />
               <Mybids />
-              <FlashDeals />
-              <NewArrivals />
+              {/* <NewArrivals /> */}
 
 
               {/* <Annocument /> */}

@@ -125,13 +125,13 @@ import { Modal, Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
           />
         </div>
         <div className="form-group">
-        <label className="label">Job Description</label>
+        <label className="label">Description</label>
           <textarea
           className="input"
             name="description"
             cols="30"
             rows="5"
-            placeholder="Job Description"
+            placeholder="Description"
             value={description}
             onChange={onChange}
           />
