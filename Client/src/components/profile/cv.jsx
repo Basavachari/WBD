@@ -131,7 +131,7 @@ const CV = ({
                       </h4>
                       {profile !== null && profile.experience.length > 0 ? (
                         <>
-                          <Experience experience={profile.experience} owner ={""} />
+                          <Experience experience={profile.experience} owner ={"1"} />
 
 
                         </>
@@ -146,7 +146,7 @@ const CV = ({
                         <div className="col-sm-12 container shadow ">
                           {profile !== null && profile.education.length > 0 ? (
                             <>
-                              <Education education={profile.education} owner = {""} />
+                              <Education education={profile.education} owner = {"1"} />
                             </>
                           ) : <>
                             No education found

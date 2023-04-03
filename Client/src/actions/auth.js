@@ -51,6 +51,7 @@ export const register=(
         dispatch(loadUser());
     }
     catch(err){
+        if(err.response && err.response.data){
         const errors=err.response.data.errors;
         if(errors){
             errors.forEach(error=>dispatch(setAlert(error.msg,'danger')));
@@ -59,6 +60,7 @@ dispatch({
     type:REGISTER_FAIL
 });
     }
+}
 };
 
 //login

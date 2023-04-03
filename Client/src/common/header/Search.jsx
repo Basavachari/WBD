@@ -4,10 +4,10 @@ import logo from "../../components/assets/images/logofinal.svg"
 import {Link} from 'react-router-dom'
 const Search = () => {
   // fixed Header
-  window.addEventListener("scroll", function () {
-    const search = document.querySelector(".search")
-    search.classList.toggle("active", window.scrollY > 100)
-  })
+  // window.addEventListener("scroll", function () {
+  //   const search = document.querySelector(".search")
+  //   search.classList.toggle("active", window.scrollY > 100)
+  // })
   // const [query, setQuery] = useState(0)
 
   // const searchHandler = (e) => {
