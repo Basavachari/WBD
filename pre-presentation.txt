@@ -1,0 +1,15 @@
+problem motivation:
+flexibility with time, place
+freedom
+work on more projects at a time
+
+DDD
+DDD also aims to create models that are understandable by
+everyone involved in the software development
+
+why not kernel sharing?
+need to share certain core concepts or functionality. but other contexts have their own unique entities and behaviors that do not overlap significantly with each other.
+
+In other words, the User context is not dependent on the Jobs and Bids contexts, but the Jobs and Bids contexts are dependent on the User context.
+
+This is because a Job can exist independently without any Bids, but Bids are always associated with a Job.
