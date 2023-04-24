@@ -1,0 +1,50 @@
+.headingdesc {
+  
+    text-align: left;
+    background-color: white;
+    padding-bottom: 10px;
+    padding-left: 5vh;
+  }
+  .projectName {
+    padding: 2vh 0;
+    font-size: 3rem;
+    font-family: sans-serif;
+  
+    /* Set the background of 
+        the text  */
+    background:
+    linear-gradient(120deg, rgb(29, 187, 34) 0%, rgb(0, 0, 0) 100%);
+    
+  
+    /* Clip the background upto
+        the text  */
+    -webkit-background-clip: text;
+    background-clip: text;
+  
+    /* Set the color of the text
+        to transparent  */
+    color: transparent;
+  }
+  .buttons{
+    position: relative;
+    
+  }
+  .card {
+    border: solid rgb(74, 151, 78) 1px;
+    margin-bottom: 10px;
+  }
+  .card-body1 {
+    justify-content: space-between;
+    margin: 2%;
+  }
+  .card-body1 li{
+    list-style-type: circle!important;
+  }
+  .btn-skills{
+    margin: 1%;
+    min-width: 100px;
+    background:linear-gradient(63deg, rgba(1,166,98,1) 0%, rgba(2,172,102,1) 100%);
+    border-radius: 10px;
+    color: white;
+    padding: 1%;
+  }

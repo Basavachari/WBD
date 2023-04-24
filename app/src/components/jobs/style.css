@@ -1,0 +1,16 @@
+.flash {
+  background: #f6f9fc;
+  padding: 15px 10px;
+}
+.container .nitish{
+  margin-top: 10px;
+  margin-bottom: 30px;
+  margin-left: 10px;
+}
+.container .something {
+  
+  margin-left: 10px;
+}
+#notvisible {
+  display: none;
+}
