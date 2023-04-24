@@ -10,19 +10,11 @@
     font-size: 3rem;
     font-family: sans-serif;
   
-    /* Set the background of 
-        the text  */
     background:
     linear-gradient(120deg, rgb(29, 187, 34) 0%, rgb(0, 0, 0) 100%);
-    
-  
-    /* Clip the background upto
-        the text  */
     -webkit-background-clip: text;
     background-clip: text;
   
-    /* Set the color of the text
-        to transparent  */
     color: transparent;
   }
   .buttons-div{
