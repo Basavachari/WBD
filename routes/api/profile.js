@@ -6,6 +6,21 @@ const Profile =require('../../models/Profile')
 const {check,validationResult}=require('express-validator');
 const User =require('../../models/User');
 const path = require('path');
+const { createClient } = require('redis');
+
+const client = createClient({
+    password: 'gWKSd8PNDtG7tw5ZWD1hJ6Oq3c3wRpXw',
+    socket: {
+        host: 'redis-12017.c263.us-east-1-2.ec2.cloud.redislabs.com',
+        port: 12017
+    }
+});
+(async () => {
+    await client.connect();
+})();
+
+client.on('connect', () => console.log('::> Redis Client Connected'));
+client.on('error', (err) => console.log('<:: Redis Client Error', err));
 const multer = require('multer');
 // Set storage engine for Multer
 const storage = multer.diskStorage({
@@ -43,6 +58,7 @@ router.get('/me',auth,async(req,res)=>{
     try{
         //find profile of user
         const profile=await Profile.findOne({user:req.user.id}).populate('user',['username','avatar']);
+
         if(!profile){
             return res.status(400).json({
                 //If there is no profile data then display this message
@@ -52,7 +68,7 @@ router.get('/me',auth,async(req,res)=>{
         res.json(profile);
     } catch(err){
         console.error(err.message);
-        res.status(500).send('Server Error');
+        res.status(500);//.send('Server Error');
     }
     // res.send('Profile route');
 })
@@ -145,22 +161,24 @@ router.post(
     }
 )
 
-//@route    GET api/profile
-//@desc     Get all profiles
-//@access   public
+// //@route    GET api/profile
+// //@desc     Get all profiles
+// //@access   public
 
-router.get('/',async(req,res)=>{
-    try{
-        const profiles=await Profile.find().populate('user',['username','avatar']);
-        res.json(profiles);
-    }
-    catch(err){
-        console.error(err.message);
-        res.status(500).send('Server Error');
-    }
-}
+// router.get('/',async(req,res)=>{
+//     try{
+//         const profiles=await Profile.find().populate('user',['username','avatar']);
+//         res.json(profiles);
+//     }
+//     catch(err){
+//         console.error(err.message);
+//         res.status(500);//.send('Server Error');
+//     }
+// }
 
-)
+// )
+
+
 //@route    GET api/profile/propularUser
 router.get('/popularUser',auth,async(req,res)=>{
     try{
@@ -169,36 +187,75 @@ router.get('/popularUser',auth,async(req,res)=>{
     }
     catch(err){
         console.error(err.message);
-        res.status(500).send('Server Error');
+        res.status(500);//.send('Server Error');
     }
 })
 
 
 // @get a pirticular profile
 router.get('/getprofile/:id',async(req,res)=>{
+    const {idd}=req.params;
+    const cachedData=await client.get(`getProfile-${idd}`)
+    if(cachedData){
+        return res.json(JSON.parse(cachedData))
+    }
     try{
         const id = req.params.id;
         const profiles=await Profile.find({_id:id}).populate('user',['username','avatar']);
+        client.set(`getProfile-${id}`,JSON.stringify(profiles))
         res.json(profiles);
     }
     catch(err){
         console.error(err.message);
-        res.status(500).send('Server Error');
+        res.status(500);//.send('Server Error');
     }
 })
-//@route GET all user profiles
+
+// //@route GET all user profiles
 router.get('/users',async(req,res)=>{
+    const usersData=await client.get(`users`)
+    if(usersData){
+        return res.json(JSON.parse(usersData))
+    }
     try{
         const users=await User.find({})
+        client.set(`users`,JSON.stringify(users))
         res.json(users);
     }
     catch(err){
         console.error(err.message);
-        res.status(500).send('Server Error');
+        res.status(500);//.send('Server Error');
     }
 }
 
 )
+
+// // define the route for GET all user profiles
+// //@route GET all user profiles
+// router.get('/users',async(req,res)=>{
+//     try{
+//         // Try to get the cached data from Redis
+//         client.get("users", async (err, cachedData) => {
+//             if (cachedData) {
+//                 // If the data is cached, parse and send it to the client
+//                 console.log("Using cached data");
+//                 res.json(JSON.parse(cachedData));
+//             } else {
+//                 // If the data is not cached, query the MongoDB database
+//                 const users = await User.find({});
+//                 // Store the result in Redis
+//                 client.set("users", JSON.stringify(users));
+//                 console.log("Using fresh data");
+//                 res.json(users);
+//             }
+//         });
+//     }
+//     catch(err){
+//         console.error(err.message);
+//         res.status(500).send('Server Error');
+//     }
+// });
+
 
 
 
@@ -224,7 +281,7 @@ router.put('/avatar/:user_id', upload, async (req, res) => {
       }
     } catch (err) {
       console.error(err.message);
-      res.status(500).send('Server Error');
+      res.status(500);//.send('Server Error');
     }
   });
 
@@ -250,7 +307,7 @@ router.get('/user/:user_id',async(req,res)=>{
             msg:'User not found'
         });
         console.error(err.message);
-        res.status(500).send('Server Error');
+        res.status(500);//.send('Server Error');
     }
 }
 
@@ -277,7 +334,7 @@ router.delete('/users/:user_id',async(req,res)=>{
             msg:'User not found'
         });
         console.error(err.message);
-        res.status(500).send('Server Error');
+        res.status(500);//.send('Server Error');
     }
 }
 
@@ -327,7 +384,7 @@ router.put('/experience',[auth,[
             res.json(profile);
         } catch(err){
             console.error(err.message);
-            res.status(500).send();
+            res.status(500);//.send();
         }
     }
     catch(err){
@@ -337,7 +394,7 @@ router.put('/experience',[auth,[
         });
     
         console.error(err.message);
-        res.status(500).send('Server Error');
+        res.status(500);//.send('Server Error');
     }
 }
 
@@ -357,7 +414,7 @@ router.delete('/experience/:edu_id',auth,async(req,res)=>{
         res.json(profile);
     }catch(err){
         console.error(err.message);
-        res.status(500).send('Server Error');
+        res.status(500);//.send('Server Error');
     }
 })
 
@@ -417,7 +474,7 @@ router.put('/education',[auth,[
             msg:'User not found'
         });
         console.error(err.message);
-        res.status(500).send('Server Error');
+        res.status(500);//.send('Server Error');
     }
 }
 
@@ -437,7 +494,7 @@ router.delete('/education/:edu_id',auth,async(req,res)=>{
         res.json(profile);
     }catch(err){
         console.error(err.message);
-        res.status(500).send('Server Error');
+        res.status(500);//.send('Server Error');
     }
 })
 //export route

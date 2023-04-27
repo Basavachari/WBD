@@ -3,19 +3,27 @@ const Job = require('../../models/Job')
 const auth = require('../../middleware/auth')
 const jwt = require('jsonwebtoken');
 const config = require('config');
-
 const { check, validationResult } = require('express-validator');
 const User = require('../../models/User');
-
-//connect to express router
+const { createClient } = require('redis');
+const client = createClient({
+    password: 'gWKSd8PNDtG7tw5ZWD1hJ6Oq3c3wRpXw',
+    socket: {
+        host: 'redis-12017.c263.us-east-1-2.ec2.cloud.redislabs.com',
+        port: 12017
+    }
+});//connect to express router
 const router = express.Router();
+(async () => {
+    await client.connect();
+})();
 
-
+client.on('connect', () => console.log('::> Redis Client Connected'));
+client.on('error', (err) => console.log('<:: Redis Client Error', err));
 //GET api/posts
 //Test route
 //public route
 router.post('/addjob',[auth], async (req, res) => {
-
     const {
         jobName,
         price,
@@ -134,8 +142,31 @@ router.post('/updatejob', [auth], async (req, res) => {
 
 router.get('/getjobs', auth,async (req, res) => {
     console.log(req.user.id)
+   
+    const jobsData=await client.get(`jobs`)
+    if(jobsData){
+        return res.json(JSON.parse(jobsData))
+    }
     try {
         const jobs = await Job.find({user:{$ne:req.user.id}});
+        // client.set(`jobs`,JSON.stringify(jobs))
+        // Set the value of a key with an expiration time of 10 seconds
+client.set(`jobs`, JSON.stringify(jobs), (error, reply) => {
+    if (error) {
+      console.error(error);
+    } else {
+      console.log(reply);
+      
+      // Set an expiration time of 10 seconds for the key
+      client.expire(`jobs`, 10, (error, reply) => {
+        if (error) {
+          console.error(error);
+        } else {
+          console.log(reply);
+        }
+      });
+    }
+  });
         res.json(jobs);
     }
     catch (err) {

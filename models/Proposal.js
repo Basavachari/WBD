@@ -28,6 +28,7 @@ const bidSchema = new mongoose.Schema({
 
     
 }); 
+bidSchema.set('timestamps',true);
 module.exports = mongoose.model('bid', bidSchema);
 
 

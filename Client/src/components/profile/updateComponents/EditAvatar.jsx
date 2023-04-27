@@ -17,18 +17,18 @@ function EditAvatar({ auth: { user } }) {
     setAvatarPreview(user.avatar);
   };
 
-  useEffect(() => {
-    setTimeout(() => {
-      const img = new Image();
-      img.src = require(`./uploads/${avatarImg}`);
-      img.onload = () => {
-        setAvatarPreview(img.src);
-      };
-      img.onerror = () => {
-        setAvatarPreview(require('./uploads/1679758942057.png'));
-      };
-    }, 3000);
-  }, [avatarImg]);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     const img = new Image();
+  //     img.src = require(`./uploads/${avatarImg}`);
+  //     img.onload = () => {
+  //       setAvatarPreview(img.src);
+  //     };
+  //     img.onerror = () => {
+  //       setAvatarPreview(require('./uploads/1679758942057.png'));
+  //     };
+  //   }, 3000);
+  // }, [avatarImg]);
 
   const handleAvatarChange = (e) => {
     setAvatarFile(e.target.files[0]);

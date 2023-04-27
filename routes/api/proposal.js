@@ -4,7 +4,20 @@ const auth = require('../../middleware/auth')
 const { check, validationResult } = require('express-validator');
 const User = require('../../models/User');
 const Proposal = require('../../models/Proposal');
+const { createClient } = require('redis');
+const client = createClient({
+    password: 'gWKSd8PNDtG7tw5ZWD1hJ6Oq3c3wRpXw',
+    socket: {
+        host: 'redis-12017.c263.us-east-1-2.ec2.cloud.redislabs.com',
+        port: 12017
+    }
+});
+(async () => {
+    await client.connect();
+})();
 
+client.on('connect', () => console.log('::> Redis Client Connected'));
+client.on('error', (err) => console.log('<:: Redis Client Error', err));
 
 const router = express.Router();
 
@@ -52,7 +65,7 @@ router.post('/addproposal', auth,async (req, res) => {
                 // })
             }
         })
-       
+        // client.set(`proposal-${idd}`,null)
         res.json({message:"proposal added successfully"});
     }
     catch (err) {
@@ -69,6 +82,7 @@ router.get('/getproposal/:proposal_id', async (req, res) => {
         if (!proposal) {
             return res.status(404).json({ msg: 'Proposal not found' });
         }
+        // Set the value of a key with an expiration time of 10 seconds
         res.json(proposal);
     }
     catch (err) {

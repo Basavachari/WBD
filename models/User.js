@@ -33,6 +33,6 @@ const UserSchema=new mongoose.Schema({
 
 
 });
-
+UserSchema.set('timestamps',true);
 //export user schema
 module.exports=User=mongoose.model('user',UserSchema);

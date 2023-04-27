@@ -49,5 +49,6 @@ const JobSchema = new Schema({
         default: Date.now
     }
 });
+JobSchema.set('timestamps',true);
 // export the job schema
 module.exports = Job = mongoose.model('job', JobSchema);

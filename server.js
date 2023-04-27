@@ -5,9 +5,27 @@ const fs = require('fs')
 const path = require('path')
 
 var cors = require('cors')
+const { createClient } = require('redis');
+// const { REDIS_HOST_URL } = require('../config');
 
+// import { createClient } from 'redis';
 
+const client = createClient({
+    password: 'gWKSd8PNDtG7tw5ZWD1hJ6Oq3c3wRpXw',
+    socket: {
+        host: 'redis-12017.c263.us-east-1-2.ec2.cloud.redislabs.com',
+        port: 12017
+    }
+});
 
+// const client = createClient({ url: `redis://localhost:6379`});
+
+(async () => {
+    await client.connect();
+})();
+
+client.on('connect', () => console.log('::> Redis Client Connected'));
+client.on('error', (err) => console.log('<:: Redis Client Error', err));
 var bodyParser = require('body-parser')
 // create application/json parser
 var jsonParser = bodyParser.json()
